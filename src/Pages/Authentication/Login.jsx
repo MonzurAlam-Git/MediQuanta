@@ -3,9 +3,12 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase.config";
 import SocialLogin from "./SocialLogin";
+import useAuth from "../../Hooks/useAuth";
+import Notify from "../../Components/Shared/Notify";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const {
     register,
@@ -15,12 +18,9 @@ const Login = () => {
 
   // Submit function
   const onSubmit = async ({ email, password }) => {
-    await signInWithEmailAndPassword(auth, email, password);
-    console.log(email, password);
+    await login(auth, email, password);
+    <Notify text={"Signed IN Successfully"}></Notify>;
   };
-
-  //   const [signInWithEmailAndPassword, user, loading, error] =
-  //     // useSignInWithEmailAndPassword(auth);
 
   return (
     <div>

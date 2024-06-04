@@ -3,14 +3,10 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../../../firebase.config";
+import useAuth from "../../Hooks/useAuth";
 
 const SocialLogin = () => {
-  //   const [signInWithGoogle, user_google, loading_google, error_google] =
-  //     useSignInWithGoogle(auth);
-  //   const [signInWithGithub, user_github, loading_github, error_github] =
-  //     useSignInWithGithub(auth);
-
-  const provider = new GoogleAuthProvider();
+  const { googleLogin, githubLogin } = useAuth();
 
   return (
     <div>
@@ -18,14 +14,14 @@ const SocialLogin = () => {
       {/* Google Sign In  */}
       <div className="grid items-center justify-center gap-2">
         <button
-          onClick={() => signInWithPopup(auth, provider)}
+          onClick={() => googleLogin}
           className="btn btn-outline  bg-emerald-500 hover:bg-emerald-700 text-white w-80 font-bold "
         >
           <FcGoogle className="w-10 h-6"></FcGoogle> Google Sign In
         </button>
         {/* Github Login  */}
         <button
-          onClick={() => signInWithGithub()}
+          onClick={() => githubLogin}
           className="btn btn-outline  bg-emerald-500 hover:bg-emerald-700 text-white w-80 font-bold "
         >
           {" "}

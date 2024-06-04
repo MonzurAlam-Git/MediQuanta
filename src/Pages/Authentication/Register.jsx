@@ -6,14 +6,12 @@ import { AuthContext } from "../../Components/Shared/AuthProvider";
 import { auth } from "../../../firebase.config";
 import useAuth from "../../Hooks/useAuth";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import Notify from "../../Components/Shared/Notify";
 
 const Register = () => {
   // const { demoData } = useContext(AuthContext);
-  const { demoData } = useAuth();
+  const { createUser } = useAuth();
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-  console.log(demoData);
   const {
     register,
     formState: { errors },
@@ -22,8 +20,8 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     const { email, password } = data;
-    await createUserWithEmailAndPassword(email, password);
-    console.log("user Created Successfully", data);
+    await createUser(email, password);
+    <Notify text="account deletion successful" />;
   };
 
   return (

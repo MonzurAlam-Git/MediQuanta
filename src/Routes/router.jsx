@@ -9,6 +9,7 @@ import Dashboard from "../Components/Dashboard/Dashboard";
 import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout";
 import Customize from "../Components/Dashboard/Customize";
 import Appointments from "../Components/Dashboard/Appointments";
+import AppointmentDetails from "../Components/Dashboard/AppointmentDetails";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,12 @@ export const router = createBrowserRouter([
         path: "/dashboard/all-appointment",
         element: <Appointments></Appointments>,
         loader: () => fetch("http://localhost:3000/patientData"),
+      },
+      {
+        path: "/dashboard/all-appointment/patientData/:id",
+        element: <AppointmentDetails></AppointmentDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/patientData/${params.id}`),
       },
     ],
   },

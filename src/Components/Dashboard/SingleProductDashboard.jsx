@@ -1,7 +1,22 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import Notify from "../Shared/Notify";
 
 const SingleProductDashboard = ({ appointment }) => {
   const { _id, category, PatientName, age, details, image_url } = appointment;
+
+  const handleDelete = async (id) => {
+    await fetch(`http://localhost:3000/patientData/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        <Notify text="account deletion successful" />;
+        console.log(data);
+        // onDelete(_id);
+      });
+  };
 
   return (
     <div className="card card-compact w-48  bg-base-100 shadow-xl m-5">
@@ -15,10 +30,18 @@ const SingleProductDashboard = ({ appointment }) => {
         {/* <button className="btn btn-outline font-bold">${price}</button> */}
         <div className="card-actions ">
           <div className="flex flex-wrap gap-2">
-            <Link className="btn btn-accent text-white" to={`/shoes/${_id}`}>
+            <Link
+              className="btn btn-accent text-white"
+              to={`patientData/${_id}`}
+            >
               Details
             </Link>
-            <button className="btn btn-error text-white">Delete</button>
+            <button
+              onClick={() => handleDelete(_id)}
+              className="btn btn-error text-white"
+            >
+              Delete
+            </button>
             <Link className="btn btn-primary text-white" to={`update/${_id}`}>
               Update
             </Link>

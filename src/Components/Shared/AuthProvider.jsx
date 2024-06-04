@@ -60,21 +60,16 @@ const AuthProvider = ({ children }) => {
       return unSubscribe();
     };
   }, []);
-  const demoData = {
-    name: "monzur",
-    age: 23,
-  };
-  const authInfo = { demoData };
 
-  // const authInfo = {
-  //   user,
-  //   createUser,
-  //   login,
-  //   logOut,
-  //   googleLogin,
-  //   githubLogin,
-  //   loading,
-  // };
+  const authInfo = {
+    user,
+    createUser,
+    login,
+    logOut,
+    googleLogin,
+    githubLogin,
+  };
+
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

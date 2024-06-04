@@ -16,9 +16,9 @@ const DashboardLayout = () => {
         ></label>
         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
-          <li>
+          {/* <li>
             <a href="/dashboard/all-products">All Products</a>
-          </li>
+          </li> */}
           <li>
             <a href="/dashboard/customize-product">Customize HealthCare</a>
           </li>

@@ -2,11 +2,14 @@ import { IoMdLogOut } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { auth, user } from "../../../firebase.config";
 import { signOut } from "firebase/auth";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
-  const handleLogout = async (auth) => {
-    await signOut(auth);
-    console.log("logged Out");
+  const { user, logout } = useAuth();
+  console.log("logged IN user :", user);
+
+  const handleLogout = () => {
+    logout();
   };
   return (
     <div className="navbar bg-base-100">
@@ -72,20 +75,23 @@ const Navbar = () => {
       </div>
       <div className="navbar-end grid-flow-col gap-2">
         {user ? (
-          <button onClick={handleLogout} className="btn btn-outline btn-error">
-            Log Out
-          </button>
+          <div>
+            <button
+              onClick={handleLogout}
+              className="btn btn-outline btn-error"
+            >
+              Log Out
+            </button>
+            <div className="avatar">
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL} />
+              </div>
+            </div>
+          </div>
         ) : (
           <a href="/login" className="btn btn-outline btn-success">
             Log In
           </a>
-        )}
-        {user && (
-          <div className="avatar">
-            <div className="w-10 rounded-full">
-              <img src={user.photoURL} />
-            </div>
-          </div>
         )}
       </div>
     </div>
