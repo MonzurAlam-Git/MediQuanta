@@ -1,5 +1,5 @@
 # MediQuanta: Your Data-Driven Healthcare Companion
-Introduction
+
 
 ## MediQuanta is a medical website built with the MERN stack (MongoDB, Express.js, React.js, Node.js) that empowers you to take control of your health journey through data-driven insights and personalized care.
 
