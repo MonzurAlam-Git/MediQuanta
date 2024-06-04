@@ -12,7 +12,7 @@
 - 
 ## Technology Stack
 
-###Frontend: React.js (https://react.dev/)
-###Backend: Express.js (https://expressjs.com/)
-###Database: MongoDB (https://www.mongodb.com/)
-###Deployment: (Specify your deployment platform, e.g., Heroku, AWS)
+### Frontend: React.js (https://react.dev/)
+### Backend: Express.js (https://expressjs.com/)
+### Database: MongoDB (https://www.mongodb.com/)
+### Deployment: (Specify your deployment platform, e.g., Heroku, AWS)
