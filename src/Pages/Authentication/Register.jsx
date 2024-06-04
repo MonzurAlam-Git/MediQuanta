@@ -10,6 +10,7 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 const Register = () => {
   // const { demoData } = useContext(AuthContext);
   const { demoData } = useAuth();
+
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   console.log(demoData);

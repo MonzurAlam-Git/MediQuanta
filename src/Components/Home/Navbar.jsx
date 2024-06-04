@@ -63,6 +63,11 @@ const Navbar = () => {
           <li>
             <Link className="font-bold">Reviews</Link>
           </li>
+          <li>
+            <Link to="/profile" className="font-bold">
+              Profile
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="navbar-end grid-flow-col gap-2">

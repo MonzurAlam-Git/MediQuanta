@@ -3,6 +3,9 @@ import Banner from "./Banner";
 import Review from "./Review";
 import Reviews from "./Reviews";
 import Services from "./Services";
+import ServicesWeOffer from "./Services/ServicesWeOffer";
+import Stat from "./Stat";
+import Contact from "./Contact";
 
 const Home = () => {
   const auth = getAuth();
@@ -14,13 +17,17 @@ const Home = () => {
       {/* Banner */}
       <Banner></Banner>
       {/* Services  */}
+      <ServicesWeOffer></ServicesWeOffer>
       <Services></Services>
+
       {/* Diff  */}
       {/* Review  */}
       <Reviews />
       {/* Timeline  */}
       {/* Stat  */}
+      <Stat></Stat>
       {/* Contact  */}
+      <Contact></Contact>
     </div>
   );
 };

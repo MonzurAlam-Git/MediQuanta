@@ -12,7 +12,7 @@ const Services = () => {
           transition={{ ease: "easeInOut", duration: 0.75, delay: 0.2 }}
           className="text-3xl md:text-4xl font-semibold  xl:text-center opacity-70"
         >
-          Enter Our Realm of Offerings
+          Why <span className="font-bold">M E D I Q U A N T A </span>
         </motion.h3>
       </h1>
       <div className="wrapper section-padding">
