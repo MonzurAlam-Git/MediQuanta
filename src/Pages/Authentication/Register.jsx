@@ -2,20 +2,27 @@ import { Link } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
-import AuthProvider from "../../Components/Shared/AuthProvider";
+import { AuthContext } from "../../Components/Shared/AuthProvider";
+import { auth } from "../../../firebase.config";
+import useAuth from "../../Hooks/useAuth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 const Register = () => {
-  const { demoData } = useContext(AuthProvider);
+  // const { demoData } = useContext(AuthContext);
+  const { demoData } = useAuth();
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  console.log(demoData);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  console.log(demoData);
 
   const onSubmit = async (data) => {
     const { email, password } = data;
-    console.log("update done");
+    await createUserWithEmailAndPassword(email, password);
+    console.log("user Created Successfully", data);
   };
 
   return (

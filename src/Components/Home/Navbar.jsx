@@ -1,7 +1,13 @@
 import { IoMdLogOut } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { auth, user } from "../../../firebase.config";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
+  const handleLogout = async (auth) => {
+    await signOut(auth);
+    console.log("logged Out");
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -50,22 +56,32 @@ const Navbar = () => {
             <Link className="font-bold">About</Link>
           </li>
           <li>
-            <Link className="font-bold">Dashboard</Link>
+            <Link to="/dashboard" className="font-bold">
+              Dashboard
+            </Link>
           </li>
           <li>
             <Link className="font-bold">Reviews</Link>
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <Link to="/login" className="font-bold btn">
-          <IoMdLogOut />
-        </Link>
-        <div className="avatar">
-          <div className="w-8 rounded-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+      <div className="navbar-end grid-flow-col gap-2">
+        {user ? (
+          <button onClick={handleLogout} className="btn btn-outline btn-error">
+            Log Out
+          </button>
+        ) : (
+          <a href="/login" className="btn btn-outline btn-success">
+            Log In
+          </a>
+        )}
+        {user && (
+          <div className="avatar">
+            <div className="w-10 rounded-full">
+              <img src={user.photoURL} />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

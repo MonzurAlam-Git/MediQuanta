@@ -1,8 +1,12 @@
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../../firebase.config";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -10,12 +14,9 @@ const Login = () => {
   } = useForm();
 
   // Submit function
-  const onSubmit = ({ email, password }) => {
+  const onSubmit = async ({ email, password }) => {
+    await signInWithEmailAndPassword(auth, email, password);
     console.log(email, password);
-    //     // signInWithEmailAndPassword(email, password);
-    //     // if (user) {
-    //     //   navigate("/");
-    //     // }
   };
 
   //   const [signInWithEmailAndPassword, user, loading, error] =
@@ -164,7 +165,7 @@ const Login = () => {
                         </Link>{" "}
                       </p>
                     </div>
-                    {/* <SocialLogin></SocialLogin> */}
+                    <SocialLogin></SocialLogin>
                   </div>
                 </div>
               </div>

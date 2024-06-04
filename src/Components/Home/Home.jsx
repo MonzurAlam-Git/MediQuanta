@@ -1,9 +1,14 @@
+import { getAuth } from "firebase/auth";
 import Banner from "./Banner";
 import Review from "./Review";
 import Reviews from "./Reviews";
 import Services from "./Services";
 
 const Home = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  console.log("user", user);
+
   return (
     <div>
       {/* Banner */}
@@ -14,6 +19,7 @@ const Home = () => {
       {/* Review  */}
       <Reviews />
       {/* Timeline  */}
+      {/* Stat  */}
       {/* Contact  */}
     </div>
   );
