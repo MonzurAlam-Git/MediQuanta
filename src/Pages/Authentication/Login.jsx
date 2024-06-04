@@ -154,7 +154,7 @@ const Login = () => {
                       </a>
                       <p className="">
                         {" "}
-                        New to ArtFolio?{" "}
+                        New in MediQuanta?{" "}
                         <Link
                           className="my-1 text-primary font-bold"
                           to="/register"

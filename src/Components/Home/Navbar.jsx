@@ -38,7 +38,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link className="btn btn-ghost text-xl font-bold">daisyUI</Link>
+        <Link className="btn btn-ghost text-xl font-bold">MediQuanta</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

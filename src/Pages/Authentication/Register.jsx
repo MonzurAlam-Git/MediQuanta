@@ -1,64 +1,27 @@
 import { Link } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import AuthProvider from "../../Components/Shared/AuthProvider";
 
 const Register = () => {
+  const { demoData } = useContext(AuthProvider);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+  console.log(demoData);
 
   const onSubmit = async (data) => {
     const { email, password } = data;
-    // await createUserWithEmailAndPassword(email, password);
-
-    // if (error) {
-    //   return (
-    //     <div>
-    //       <p>Error: {error.message}</p>
-    //     </div>
-    //   );
-    // }
-    // if (loading) {
-    //   return <p>Loading...</p>;
-    // }
-    // if (user) {
-    //   return (
-    //     <div>
-    //       <p>Registered User:</p>
-    //     </div>
-    //   );
-    // }
-
-    // await createUserWithEmailAndPassword(email, password);
-    // await updateProfile({ displayName: name });
-    // const verifyEmail = await sendEmailVerification();
-    // if (verifyEmail) {
-    //   console.log("email verification sent");
-    // }
     console.log("update done");
-    // await navigate("/appointment");
   };
 
-  //   const [displayName, setDisplayName] = useState("");
-  //   const [photoURL, setPhotoURL] = useState("");
-  //   const [updateProfile, updating, error_update] = useUpdateProfile(auth);
-  //   const [sendEmailVerification, sending, error_verify] =
-  //     useSendEmailVerification(auth);
   return (
     <div className="max-w-screen">
       <div className="min-h-screen bg-base-200">
         <div className="grid my-5 lg:flex flex-row-reverse justify-items-center content-center">
-          {/* text part  */}
-          {/* <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-              a id nisi.
-            </p>
-          </div> */}
           <img
             className="w-56 h-auto lg:h-screen lg:w-3/6 p-10 bg-emerald-300"
             src="https://i.ibb.co/0DcnJ0B/Mobile-login-1.gif"
@@ -146,6 +109,42 @@ const Register = () => {
 
                 {/* passsword field  */}
                 <label> Password</label>
+                <input
+                  autoComplete="on"
+                  {...register(
+                    "password",
+
+                    {
+                      required: {
+                        value: true,
+                        message: "Please provide password correctly ",
+                      },
+                      minLength: {
+                        value: 6,
+                        message: "Must be 6 characters or longer",
+                      },
+                    }
+                  )}
+                  type="password"
+                  placeholder="Type Your Password"
+                  className="input input-success input-bordered w-full "
+                />
+
+                {/* password error  */}
+                <label className="label">
+                  {errors.password?.type === "required" && (
+                    <span className="text-red-500 font-bold ml-8">
+                      {errors.password.message}
+                    </span>
+                  )}
+                  {errors.password?.type === "minLength" && (
+                    <span className="text-red-500 font-bold ml-8">
+                      {errors.password.message}
+                    </span>
+                  )}
+                </label>
+                {/* passsword field  */}
+                <label> Confirm Password</label>
                 <input
                   autoComplete="on"
                   {...register(
