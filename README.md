@@ -15,4 +15,7 @@
 ### Frontend: React.js (https://react.dev/)
 ### Backend: Express.js (https://expressjs.com/)
 ### Database: MongoDB (https://www.mongodb.com/)
-### Deployment: (Specify your deployment platform, e.g., Heroku, AWS)
+### Frontend Deployment:  https://medi-quanta.vercel.app/
+
+### Backend Deployment:  https://mediquanta-server-1.onrender.com/
+
