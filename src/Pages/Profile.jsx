@@ -6,7 +6,7 @@ const Profile = () => {
   const auth = getAuth();
   const user = auth.currentUser;
   console.log(user);
-  const { accessToken, displayName, email, phoneNumber, photoURL } = user;
+  // const { accessToken, displayName, email, phoneNumber, photoURL } = user;
   //   Name ,email,profilepicture
   return (
     <div className="hero min-h-screen bg-base-200">

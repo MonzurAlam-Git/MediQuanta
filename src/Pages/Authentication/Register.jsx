@@ -10,7 +10,7 @@ import Notify from "../../Components/Shared/Notify";
 
 const Register = () => {
   // const { demoData } = useContext(AuthContext);
-  const { createUser } = useAuth();
+  const { createUser, user } = useAuth();
 
   const {
     register,
@@ -20,12 +20,14 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
-    const { email, password, displayName } = data;
+    const { email, password } = data;
     await createUser(email, password).then((res) => {
+      console.log(res.user);
       if (res?.user?.email) {
         const userData = {
-          name: res?.user?.displayName,
           email: res?.user?.email,
+          // name: res?.user?.displayName,
+          name: user.name,
         };
         fetch("https://mediquanta-server-1.onrender.com/users", {
           method: "POST",
@@ -35,7 +37,7 @@ const Register = () => {
           body: JSON.stringify(userData),
         })
           .then((res) => res.json())
-          .then((data) => console.log(data));
+          .then((data) => alert(data));
       }
     });
     // <Notify text="account deletion successful" />;

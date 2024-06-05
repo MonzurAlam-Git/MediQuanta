@@ -1,27 +1,43 @@
-/* eslint-disable no-unused-vars */
 import { useLoaderData } from "react-router-dom";
 
 const EditAppointment = () => {
-  const patientData = useLoaderData();
-  const { _id, category, PatientName, age, details, image_url } = patientData;
+  const data = useLoaderData();
+  console.log(data._id);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const form = e.target;
-    const productData = { _id, category, PatientName, age, details, image_url };
+
+    const form = e.target;
+
+    const category = form.category.value;
+    const PatientName = form.PatientName.value;
+    const details = form.details.value;
+    const age = form.age.value;
+    const image_url = form.image_url.value;
+
+    const patientData = {
+      // _id: data._id,
+      category,
+      PatientName,
+      age,
+      details,
+      image_url,
+    };
+
     await fetch(
-      `https://mediquanta-server-1.onrender.com/patientData/${patientData.id}`,
+      `https://mediquanta-server-1.onrender.com/patientData/${data._id}`,
       {
         method: "PATCH",
         headers: {
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(productData),
+        body: JSON.stringify(patientData),
       }
     )
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => alert("Updated Successfully"));
   };
+
   return (
     <div>
       <div>
@@ -59,12 +75,6 @@ const EditAppointment = () => {
             name="image_url"
             placeholder="Image URL"
           />
-          {/* <input
-          className="p-2  w-96 rounded bg-gray-200 border border-black mb-5"
-          type="text"
-          name="id"
-          placeholder="Id"
-        /> */}
           <input
             className="btn btn-success text-white w-48 mx-auto  "
             type="submit"

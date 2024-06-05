@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
       if (user) {
         setUser(user);
         setLoading(false);
-        console.log("Logged In User :", user.email);
+        console.log("Logged In User :", user);
       } else {
         setLoading(false);
         console.log("No user");
