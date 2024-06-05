@@ -52,11 +52,15 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link className="font-bold">Appointment</Link>
+            <Link to={"/dashboard/all-appointment"} className="font-bold">
+              Appointment
+            </Link>
           </li>
 
           <li>
-            <Link className="font-bold">About</Link>
+            <Link to={"/about"} className="font-bold">
+              About
+            </Link>
           </li>
           <li>
             <Link to="/dashboard" className="font-bold">

@@ -25,8 +25,10 @@ const SingleProductDashboard = ({ appointment }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">Name : {PatientName}</h2>
-        <p>Age : {age}</p>
-        <p>Details : {details}</p>
+        <p className="font-bold text-xl">Age : {age}</p>
+        <p className="font-bold text-xl text-red-400">
+          Problems Details : {details}
+        </p>
         {/* <button className="btn btn-outline font-bold">${price}</button> */}
         <div className="card-actions ">
           <div className="flex flex-wrap gap-2">

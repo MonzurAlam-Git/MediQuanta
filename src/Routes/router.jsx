@@ -13,6 +13,9 @@ import AppointmentDetails from "../Components/Dashboard/AppointmentDetails";
 import EditAppointment from "../Components/Dashboard/EditAppointment";
 import UpdateProfile from "../Components/UpdateProfile";
 
+import About from "../Components/Home/About";
+import PrivateRoute from "./PrivateRoute";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -32,8 +35,16 @@ export const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: "/about",
+        element: <About />,
+      },
+      {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "profile/update-profile/:id",
@@ -48,7 +59,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Dashboard></Dashboard>,
+        element: (
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/customize-product",
@@ -61,7 +76,12 @@ export const router = createBrowserRouter([
       // },
       {
         path: "/dashboard/all-appointment",
-        element: <Appointments></Appointments>,
+
+        element: (
+          <PrivateRoute>
+            <Appointments></Appointments>
+          </PrivateRoute>
+        ),
         // loader: () => fetch("https://mediquanta-server-1.onrender.com/patientData"),
       },
       {
