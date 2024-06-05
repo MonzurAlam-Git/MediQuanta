@@ -6,9 +6,8 @@ import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
-  console.log("logged IN user :", user);
 
-  const handleLogout = () => {
+  const handleLogOut = () => {
     logout();
   };
   return (
@@ -75,23 +74,20 @@ const Navbar = () => {
       </div>
       <div className="navbar-end grid-flow-col gap-2">
         {user ? (
-          <div>
-            <button
-              onClick={handleLogout}
-              className="btn btn-outline btn-error"
-            >
-              Log Out
-            </button>
-            <div className="avatar">
-              <div className="w-10 rounded-full">
-                <img src={user.photoURL} />
-              </div>
-            </div>
-          </div>
+          <button onClick={handleLogOut} className="btn btn-outline btn-error">
+            Log Out
+          </button>
         ) : (
           <a href="/login" className="btn btn-outline btn-success">
             Log In
           </a>
+        )}
+        {user && (
+          <div className="avatar">
+            <div className="w-10 rounded-full">
+              <img src={user.photoURL} />
+            </div>
+          </div>
         )}
       </div>
     </div>

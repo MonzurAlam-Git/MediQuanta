@@ -4,6 +4,7 @@ import { auth } from "../../firebase.config";
 const Profile = () => {
   const auth = getAuth();
   const user = auth.currentUser;
+  console.log(user);
   //   const { displayName, email, phoneNumber, photoURL } = user;
   //   Name ,email,profilepicture
   return (

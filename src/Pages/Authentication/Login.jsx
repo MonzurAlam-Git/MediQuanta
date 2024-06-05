@@ -19,7 +19,8 @@ const Login = () => {
   // Submit function
   const onSubmit = async ({ email, password }) => {
     await login(auth, email, password);
-    <Notify text={"Signed IN Successfully"}></Notify>;
+    console.log("Log IN Successful");
+    // <Notify text={"Signed IN Successfully"}></Notify>;
   };
 
   return (
