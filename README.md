@@ -10,12 +10,16 @@
 - Telehealth Services: Access convenient and secure consultations with healthcare professionals from the comfort of your home.
 - Visual Health Insights: Gain valuable insights into your well-being through a customizable dashboard. Track key health metrics and visualize trends over time.
 - 
+## Live Link 
+
+### Frontend Deployment:  https://medi-quanta.vercel.app/
+
+### Backend Deployment:  https://mediquanta-server-1.onrender.com/
+
 ## Technology Stack
 
 ### Frontend: React.js (https://react.dev/)
 ### Backend: Express.js (https://expressjs.com/)
 ### Database: MongoDB (https://www.mongodb.com/)
-### Frontend Deployment:  https://medi-quanta.vercel.app/
 
-### Backend Deployment:  https://mediquanta-server-1.onrender.com/
 
