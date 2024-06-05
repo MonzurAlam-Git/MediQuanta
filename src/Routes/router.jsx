@@ -11,6 +11,7 @@ import Customize from "../Components/Dashboard/Customize";
 import Appointments from "../Components/Dashboard/Appointments";
 import AppointmentDetails from "../Components/Dashboard/AppointmentDetails";
 import EditAppointment from "../Components/Dashboard/EditAppointment";
+import UpdateProfile from "../Components/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "profile/update-profile/:id",
+        element: <UpdateProfile />,
       },
     ],
   },

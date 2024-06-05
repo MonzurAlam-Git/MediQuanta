@@ -16,7 +16,7 @@ const ServicesWeOffer = () => {
       </h1>
       <div className="mt-10 grid grid-cols-3 gap-2 justify-items-center">
         {services.map((service) => (
-          <SingleService key={service.id} service={service}></SingleService>
+          <SingleService key={service._id} service={service}></SingleService>
         ))}
       </div>
     </div>

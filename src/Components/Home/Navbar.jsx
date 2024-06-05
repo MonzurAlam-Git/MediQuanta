@@ -5,11 +5,12 @@ import { signOut } from "firebase/auth";
 import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { user, logOut } = useAuth();
 
   const handleLogOut = () => {
-    logout();
+    logOut();
   };
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">

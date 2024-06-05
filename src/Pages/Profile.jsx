@@ -1,11 +1,12 @@
 import { getAuth } from "firebase/auth";
 import { auth } from "../../firebase.config";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const auth = getAuth();
   const user = auth.currentUser;
   console.log(user);
-  //   const { displayName, email, phoneNumber, photoURL } = user;
+  const { accessToken, displayName, email, phoneNumber, photoURL } = user;
   //   Name ,email,profilepicture
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -16,9 +17,12 @@ const Profile = () => {
           <h1 className="text-4xl font-bold">Email : {user.email}</h1>
           <h1 className="text-3xl font-bold">Contact : {user.phoneNumber}</h1>
 
-          <button className="btn btn-primary mt-5">
-            Personalized Dashboard
-          </button>
+          <Link
+            className="btn btn-info p-3 text-white mt-5"
+            to={`update-profile/${user.accessToken}`}
+          >
+            Update Profile
+          </Link>
         </div>
       </div>
     </div>

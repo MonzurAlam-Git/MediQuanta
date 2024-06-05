@@ -19,9 +19,26 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const { email, password } = data;
-    await createUser(email, password);
-    <Notify text="account deletion successful" />;
+    console.log(data);
+    const { email, password, displayName } = data;
+    await createUser(email, password).then((res) => {
+      if (res?.user?.email) {
+        const userData = {
+          name: res?.user?.displayName,
+          email: res?.user?.email,
+        };
+        fetch("https://mediquanta-server-1.onrender.com/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data));
+      }
+    });
+    // <Notify text="account deletion successful" />;
   };
 
   return (
@@ -50,19 +67,7 @@ const Register = () => {
                     type="text"
                     placeholder="First Name"
                     className="input input-success input-bordered w-3/5   "
-                    {...register("firstName", {
-                      required: {
-                        value: true,
-                        message: "Please provide Name ",
-                      },
-                    })}
-                  />
-                  <input
-                    autoComplete="on"
-                    type="text"
-                    placeholder="Last Name"
-                    className="input input-success input-bordered w-2/5 max-w-xs"
-                    {...register("lastName", {
+                    {...register("displayName", {
                       required: {
                         value: true,
                         message: "Please provide Name ",
