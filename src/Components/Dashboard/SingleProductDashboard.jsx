@@ -7,12 +7,12 @@ const SingleProductDashboard = ({ appointment }) => {
   const { _id, category, PatientName, age, details, image_url } = appointment;
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:3000/patientData/${id}`, {
+    await fetch(`https://mediquanta-server-1.onrender.com/patientData/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        <Notify text="account deletion successful" />;
+        // <Notify text="account deletion successful" />;
         console.log(data);
         // onDelete(_id);
       });
@@ -42,7 +42,10 @@ const SingleProductDashboard = ({ appointment }) => {
             >
               Delete
             </button>
-            <Link className="btn btn-primary text-white" to={`update/${_id}`}>
+            <Link
+              className="btn btn-primary text-white"
+              to={`patientData/update/${_id}`}
+            >
               Update
             </Link>
           </div>

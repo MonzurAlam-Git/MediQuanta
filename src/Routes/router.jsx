@@ -10,6 +10,7 @@ import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout";
 import Customize from "../Components/Dashboard/Customize";
 import Appointments from "../Components/Dashboard/Appointments";
 import AppointmentDetails from "../Components/Dashboard/AppointmentDetails";
+import EditAppointment from "../Components/Dashboard/EditAppointment";
 
 export const router = createBrowserRouter([
   {
@@ -51,18 +52,28 @@ export const router = createBrowserRouter([
       // {
       //   path: "/dashboard/all-products",
       //   element: <AllProducts></AllProducts>,
-      //   loader: () => fetch("http://localhost:3000/services"),
+      //   loader: () => fetch("https://mediquanta-server-1.onrender.com/services"),
       // },
       {
         path: "/dashboard/all-appointment",
         element: <Appointments></Appointments>,
-        loader: () => fetch("http://localhost:3000/patientData"),
+        // loader: () => fetch("https://mediquanta-server-1.onrender.com/patientData"),
       },
       {
-        path: "/dashboard/all-appointment/patientData/:id",
+        path: "all-appointment/patientData/:id",
         element: <AppointmentDetails></AppointmentDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/patientData/${params.id}`),
+          fetch(
+            `https://mediquanta-server-1.onrender.com/patientData/${params.id}`
+          ),
+      },
+      {
+        path: "/dashboard/all-appointment/patientData/update/:id",
+        element: <EditAppointment />,
+        loader: ({ params }) =>
+          fetch(
+            `https://mediquanta-server-1.onrender.com/patientData/${params.id}`
+          ),
       },
     ],
   },
