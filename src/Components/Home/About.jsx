@@ -73,10 +73,10 @@ const About = () => {
         <li className="mb-2">
           <strong>Backend Deployment:</strong>{" "}
           <a
-            href="https://mediquanta-server-1.onrender.com/"
+            href="http://localhost:3000/"
             className="text-blue-500 hover:underline"
           >
-            https://mediquanta-server-1.onrender.com/
+            http://localhost:3000/
           </a>
         </li>
       </ul>

@@ -1,26 +1,39 @@
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+// import { FcGoogle } from "react-icons/fc";
 import { auth } from "../../../firebase.config";
-import useAuth from "../../Hooks/useAuth";
+import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../../Components/Shared/AuthProvider";
 
 const SocialLogin = () => {
-  const { googleLogin, githubLogin } = useAuth();
+  const { googleLogin, githubLogin } = useContext(AuthContext);
+
+  const token = localStorage.getItem("token");
+  console.log("Token From SL =>", token);
+
   const handleGoogle = () => {
-    googleLogin().then((res) => {
-      if (res?.user?.email) {
-        const userData = {
-          email: res?.user?.email,
-          name: res?.user?.displayName,
+    googleLogin().then((data) => {
+      if (data?.user?.email) {
+        const userInfo = {
+          email: data?.user?.email,
+          name: data?.user?.displayName,
         };
-        fetch(" https://mediquanta-server-1.onrender.com/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userData),
-        });
+
+        axios
+          .post("http://localhost:3000/users", userInfo, {
+            headers: {
+              authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          })
+          .then((response) => {
+            const user = response.data;
+            localStorage.setItem("token", user?.token);
+          })
+          .catch((error) => {
+            console.error("There was an error!", error);
+          });
       }
     });
   };
@@ -32,7 +45,7 @@ const SocialLogin = () => {
           email: res?.user?.email,
           name: res?.user?.displayName,
         };
-        fetch(" https://mediquanta-server-1.onrender.com/users", {
+        fetch(" http://localhost:3000/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -65,5 +78,40 @@ const SocialLogin = () => {
     </div>
   );
 };
+
+// const handleGoogle = async () => {
+//   await googleLogin().then((res) => {
+//     if (res?.user?.email) {
+//       const userData = {
+//         email: res?.user?.email,
+//         name: res?.user?.displayName,
+//       };
+
+//       fetch("http://localhost:3000/users", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(userData),
+//       })
+//         .then((res) => res.json())
+//         .then((data) => {
+//           // localStorage.setItem("token", data?.token);
+//           console.log(data);
+//         });
+//       // const response = axios.post("http://localhost:3000/users", userData, {
+//       //   headers: {
+//       //     authorization: `Bearer ${token}`,
+//       //     "Content-Type": "application/json", // Ensure content type is JSON
+//       //   },
+//       // });
+//       // localStorage.setItem("authToken", response.data.token);
+//     }
+//   });
+// };
+// .then((res) => localStorage.setItem("token", res.data.token));
+
+// Copied Google Functionality
+// const { googleLogin } = useAuth();
 
 export default SocialLogin;

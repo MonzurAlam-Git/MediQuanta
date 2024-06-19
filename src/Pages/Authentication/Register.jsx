@@ -7,6 +7,7 @@ import { auth } from "../../../firebase.config";
 import useAuth from "../../Hooks/useAuth";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Notify from "../../Components/Shared/Notify";
+import axios from "axios";
 
 const Register = () => {
   // const { demoData } = useContext(AuthContext);
@@ -18,30 +19,41 @@ const Register = () => {
     handleSubmit,
   } = useForm();
 
+  const token = localStorage.getItem("token");
+  console.log("Token From Register =>", token);
+
   const onSubmit = async (data) => {
     console.log(data);
     const { email, password } = data;
-    await createUser(email, password).then((res) => {
-      console.log(res.user);
-      if (res?.user?.email) {
-        const userData = {
-          email: res?.user?.email,
-          // name: res?.user?.displayName,
-          name: user.name,
+    await createUser(email, password).then((data) => {
+      if (data?.user?.email) {
+        const userInfo = {
+          email: data?.user?.email,
+          name: data?.user?.displayName,
         };
-        fetch("https://mediquanta-server-1.onrender.com/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userData),
-        })
-          .then((res) => res.json())
-          .then((data) => alert(data));
+        console.log(userInfo);
+
+        axios
+          .post("http://localhost:3000/users", userInfo, {
+            headers: {
+              authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          })
+          .then((response) => {
+            const user = response.data;
+            localStorage.setItem("token", user?.token);
+          })
+          .catch((error) => {
+            console.error("There was an error!", error);
+          });
       }
     });
-    // <Notify text="account deletion successful" />;
   };
+  // };
+
+  // <Notify text="account deletion successful" />;
+  // };
 
   return (
     <div className="max-w-screen">

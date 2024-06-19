@@ -1,6 +1,5 @@
 import { getAuth } from "firebase/auth";
 import Banner from "./Banner";
-import Review from "./Review";
 import Reviews from "./Reviews";
 import Services from "./Services";
 import ServicesWeOffer from "./Services/ServicesWeOffer";
@@ -13,7 +12,7 @@ const Home = () => {
   console.log("user", user);
 
   return (
-    <div>
+    <div className="">
       {/* Banner */}
       <Banner></Banner>
       {/* Services  */}

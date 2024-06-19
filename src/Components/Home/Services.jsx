@@ -10,13 +10,13 @@ const Services = () => {
           initial={{ y: "100%" }}
           whileInView={{ y: 0 }}
           transition={{ ease: "easeInOut", duration: 0.75, delay: 0.2 }}
-          className="text-3xl md:text-4xl font-semibold  xl:text-center opacity-70"
+          className="text-3xl md:text-4xl font-semibold  md:text-center opacity-70"
         >
           Why <span className="font-bold">M E D I Q U A N T A </span>
         </motion.h3>
       </h1>
       <div className="wrapper section-padding">
-        <div className="flex flex-col gap-10 md:gap-20 md:text-xl">
+        <div className="grid grid-cols-1 gap-10 md:gap-20 md:text-xl">
           {/* PART 1 */}
           <div className="grid xl:grid-cols-5 gap-10 md:gap-20">
             <div className="space-y-5 xl:col-span-3">
@@ -37,7 +37,7 @@ const Services = () => {
                   initial={{ y: "100%" }}
                   whileInView={{ y: 0 }}
                   transition={{ ease: "easeInOut", duration: 0.75, delay: 0.2 }}
-                  className="text-3xl md:text-3xl font-semibold uppercase opacity-70"
+                  className="text-2xl text-balance md:text-3xl font-semibold uppercase opacity-70 break-words"
                 >
                   <Fade delay={1e3} cascade damping={1e-1}>
                     Data Analytics for Patient Care

@@ -12,11 +12,11 @@ const Customize = () => {
 
   const onSubmit = async (patientData) => {
     // const response = await axios.post(
-    //   "https://mediquanta-server-1.onrender.com/patientData",
+    //   "http://localhost:3000/patientData",
     //   patientData
     // );
 
-    await fetch("https://mediquanta-server-1.onrender.com/patientData", {
+    await fetch("http://localhost:3000/patientData", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

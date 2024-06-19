@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import useAuth from "../../Hooks/useAuth";
 import { useEffect } from "react";
+import axios from "axios";
 
 const Login = () => {
   const { user, login } = useAuth();
@@ -12,6 +13,7 @@ const Login = () => {
 
   const from = location?.state?.from?.pathname || "/";
   console.log(location);
+  const token = localStorage.getItem("token");
 
   // Submit function
   const handleSubmit = async (e) => {
@@ -20,25 +22,31 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    await login(email, password).then((res) => {
-      if (res?.user?.email) {
-        const userData = {
-          email: res?.user?.email,
-          name: res?.user?.displayName,
-          phoneNumber: res?.user?.phoneNumber,
+    await login(email, password).then((data) => {
+      if (data?.user?.email) {
+        const userInfo = {
+          email: data?.user?.email,
+          name: data?.user?.displayName,
         };
-        fetch(" https://mediquanta-server-1.onrender.com/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userData),
-        });
+
+        axios
+          .post("http://localhost:3000/users", userInfo, {
+            headers: {
+              authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          })
+          .then((response) => {
+            const user = response.data;
+            localStorage.setItem("token", user?.token);
+          })
+          .catch((error) => {
+            console.error("There was an error!", error);
+          });
       }
     });
-    console.log("login with", email, password);
-    console.log("location", location);
   };
+
   useEffect(() => {
     if (user) {
       navigate(from, { replace: true });

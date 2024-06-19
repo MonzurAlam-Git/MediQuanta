@@ -15,6 +15,7 @@ import UpdateProfile from "../Components/UpdateProfile";
 
 import About from "../Components/Home/About";
 import PrivateRoute from "./PrivateRoute";
+import UpdatePassword from "../Pages/Authentication/UpdatePassword";
 
 export const router = createBrowserRouter([
   {
@@ -39,16 +40,22 @@ export const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/profile",
+        path: "/profile/:email_fetch",
         element: (
           <PrivateRoute>
             <Profile></Profile>
           </PrivateRoute>
         ),
+        loader: (params) =>
+          fetch(`http://localhost:3000/users/${params.email_fetch}`),
       },
       {
-        path: "profile/update-profile/:id",
+        path: "/update-profile/:id",
         element: <UpdateProfile />,
+      },
+      {
+        path: "/update-password",
+        element: <UpdatePassword />,
       },
     ],
   },
@@ -72,7 +79,7 @@ export const router = createBrowserRouter([
       // {
       //   path: "/dashboard/all-products",
       //   element: <AllProducts></AllProducts>,
-      //   loader: () => fetch("https://mediquanta-server-1.onrender.com/services"),
+      //   loader: () => fetch("http://localhost:3000/services"),
       // },
       {
         path: "/dashboard/all-appointment",
@@ -82,23 +89,19 @@ export const router = createBrowserRouter([
             <Appointments></Appointments>
           </PrivateRoute>
         ),
-        // loader: () => fetch("https://mediquanta-server-1.onrender.com/patientData"),
+        // loader: () => fetch("http://localhost:3000/patientData"),
       },
       {
         path: "all-appointment/patientData/:id",
         element: <AppointmentDetails></AppointmentDetails>,
         loader: ({ params }) =>
-          fetch(
-            `https://mediquanta-server-1.onrender.com/patientData/${params.id}`
-          ),
+          fetch(`http://localhost:3000/patientData/${params.id}`),
       },
       {
         path: "/dashboard/all-appointment/patientData/update/:id",
         element: <EditAppointment />,
         loader: ({ params }) =>
-          fetch(
-            `https://mediquanta-server-1.onrender.com/patientData/${params.id}`
-          ),
+          fetch(`http://localhost:3000/patientData/${params.id}`),
       },
     ],
   },

@@ -24,16 +24,13 @@ const EditAppointment = () => {
       image_url,
     };
 
-    await fetch(
-      `https://mediquanta-server-1.onrender.com/patientData/${data._id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(patientData),
-      }
-    )
+    await fetch(`http://localhost:3000/patientData/${data._id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(patientData),
+    })
       .then((res) => res.json())
       .then((data) => alert("Updated Successfully"));
   };

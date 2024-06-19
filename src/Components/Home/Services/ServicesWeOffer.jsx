@@ -5,7 +5,7 @@ const ServicesWeOffer = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("https://mediquanta-server-1.onrender.com/services")
+    fetch("http://localhost:3000/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -14,7 +14,7 @@ const ServicesWeOffer = () => {
       <h1 className="text-2xl text-center font-bold mt-10">
         Services We OFFER
       </h1>
-      <div className="mt-10 grid grid-cols-3 gap-2 justify-items-center">
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-2 justify-items-center">
         {services.map((service) => (
           <SingleService key={service._id} service={service}></SingleService>
         ))}

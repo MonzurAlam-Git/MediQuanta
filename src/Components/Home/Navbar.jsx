@@ -1,14 +1,16 @@
 import { IoMdLogOut } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { auth, user } from "../../../firebase.config";
 import { signOut } from "firebase/auth";
-import useAuth from "../../Hooks/useAuth";
+import { useContext } from "react";
+import { AuthContext } from "../Shared/AuthProvider";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut } = useContext(AuthContext);
 
-  const handleLogOut = () => {
-    logOut();
+  const handleLogOut = async () => {
+    await logOut();
+    <Navigate to="/"></Navigate>;
   };
 
   return (
@@ -47,7 +49,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link className="btn btn-ghost text-xl font-bold">MediQuanta</Link>
+        <Link className="btn btn-ghost text-xl font-bold hidden">
+          MediQuanta
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -71,7 +75,7 @@ const Navbar = () => {
             <Link className="font-bold">Reviews</Link>
           </li>
           <li>
-            <Link to="/profile" className="font-bold">
+            <Link to={`/profile/${user?.email}`} className="font-bold">
               Profile
             </Link>
           </li>

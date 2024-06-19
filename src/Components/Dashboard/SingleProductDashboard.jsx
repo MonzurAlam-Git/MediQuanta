@@ -7,7 +7,7 @@ const SingleProductDashboard = ({ appointment }) => {
   const { _id, category, PatientName, age, details, image_url } = appointment;
 
   const handleDelete = async (id) => {
-    await fetch(`https://mediquanta-server-1.onrender.com/patientData/${id}`, {
+    await fetch(`http://localhost:3000/patientData/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

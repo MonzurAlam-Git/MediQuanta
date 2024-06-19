@@ -3,23 +3,24 @@ import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="">
       <div
-        className="hero min-h-screen"
+        className="hero lg:max-w-full lg:min-h-screen bg-cover bg-center"
         style={{
           backgroundImage:
             "url(https://i.ibb.co/2S9VPtY/national-cancer-institute-Bx-Xg-TQEw1-M4-unsplash.jpg)",
         }}
       >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
+        <div className="hero-overlay bg-black bg-opacity-60"></div>
+        <div className="hero-content text-center text-neutral-content flex flex-col justify-center items-center px-4 lg:px-0">
+          {/* text  */}
           <div className="">
-            <h1 className="mb-5 text-5xl font-bold">
+            <h1 className="text-xl font-bold">
               <Fade delay={1e3} cascade damping={1e-1}>
                 Data Analytics for Patient Care
               </Fade>
             </h1>
-            <p className="mb-5">
+            <p className="m-5 text-center">
               <motion.p
                 initial={{ y: "100%" }}
                 whileInView={{ y: 0 }}
@@ -28,7 +29,7 @@ const Banner = () => {
                 Enhance patient outcomes with our advanced data analytics tools.
                 We provide in-depth analysis and insights to help healthcare
                 providers understand patient data, predict health trends, and
-                tailor treatments to individual needs
+                tailor treatments to individual needs.
               </motion.p>
             </p>
             <button className="btn btn-accent">Get Started</button>
