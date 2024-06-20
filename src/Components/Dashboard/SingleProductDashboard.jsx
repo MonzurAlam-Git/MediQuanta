@@ -19,14 +19,14 @@ const SingleProductDashboard = ({ appointment }) => {
   };
 
   return (
-    <div className="card card-compact w-48  bg-base-100 shadow-xl m-5">
+    <div className="w-96 gap-2 bg-base-100 grid grid-cols-1 justify-items-center align-center p-8 shadow-2xl">
       <figure>
         <img src={image_url} alt="Shoes" />
       </figure>
-      <div className="card-body">
+      <div className="grid grid-cols-1 justify-items-center align-center mb-5">
         <h2 className="card-title">Name : {PatientName}</h2>
         <p className="font-bold text-xl">Age : {age}</p>
-        <p className="font-bold text-xl text-red-400">
+        <p className="font-bold text-xl text-red-400 mb-5">
           Problems Details : {details}
         </p>
         {/* <button className="btn btn-outline font-bold">${price}</button> */}

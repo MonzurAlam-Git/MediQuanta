@@ -11,7 +11,7 @@ const Appointments = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-3">
+    <div className="container flex mx-auto align-center justify-center">
       {appointments.map((appointment) => (
         <SingleProductDashboard
           key={appointment._id}

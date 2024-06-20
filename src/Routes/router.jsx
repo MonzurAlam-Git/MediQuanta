@@ -16,6 +16,7 @@ import UpdateProfile from "../Components/UpdateProfile";
 import About from "../Components/Home/About";
 import PrivateRoute from "./PrivateRoute";
 import UpdatePassword from "../Pages/Authentication/UpdatePassword";
+import Contact from "../Components/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/profile/:email_fetch",

@@ -38,19 +38,39 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link className="font-bold">Products</Link>
+              <Link to={"/dashboard/all-appointment"} className="font-bold">
+                Appointment
+              </Link>
             </li>
 
             <li>
-              <Link className="font-bold">Dashboard</Link>
+              <Link to={"/about"} className="font-bold">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/dashboard" className="font-bold">
+                Dashboard
+              </Link>
             </li>
             <li>
               <Link className="font-bold">Reviews</Link>
             </li>
+            <li>
+              <Link to={`/profile/${user?.email}`} className="font-bold">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link to={`/contact`} className="font-bold">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
-        <Link className="btn btn-ghost text-xl font-bold hidden">
-          MediQuanta
+        <Link className=" text-xl font-bold ">
+          <span className="bg-red-500 p-2 text-white">Medi</span>
+          <span className=" p-2 ">Quanta</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -74,9 +94,15 @@ const Navbar = () => {
           <li>
             <Link className="font-bold">Reviews</Link>
           </li>
+
           <li>
             <Link to={`/profile/${user?.email}`} className="font-bold">
               Profile
+            </Link>
+          </li>
+          <li>
+            <Link to={`/contact`} className="font-bold">
+              Contact
             </Link>
           </li>
         </ul>

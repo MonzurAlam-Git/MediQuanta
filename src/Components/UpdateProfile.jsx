@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import { Bounce, toast } from "react-toastify";
 
@@ -10,7 +10,7 @@ const UpdateProfile = () => {
   console.log(id);
 
   const notify = () => {
-    toast.success("🦄 Wow so easy!", {
+    toast.success("Profile updated successfully!", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -34,7 +34,6 @@ const UpdateProfile = () => {
     const number = form.number.value;
 
     const userData = { email, name, photoURL, number };
-    console.log("user_id", id);
 
     await fetch(`http://localhost:3000/users/${id}`, {
       method: "PATCH",
@@ -43,14 +42,11 @@ const UpdateProfile = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userData),
-    })
-      .then((response) => {
-        const user = response.data;
-        localStorage.setItem("token", user?.token);
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
+    }).then((response) => {
+      const user = response.data;
+      localStorage.setItem("token", user?.token);
+      alert("data Update ok");
+    });
   };
 
   return (
