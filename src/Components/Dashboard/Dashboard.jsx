@@ -1,4 +1,5 @@
 import Dashboard_App from "./DashboardArea/Dashboard_App";
+import Dashboard_home from "./DashboardArea/Dashboard_home";
 import ExpeimentalDashboard from "./DashboardArea/ExpeimentalDashboard";
 
 const Dashboard = () => {
@@ -6,7 +7,8 @@ const Dashboard = () => {
     <div>
       <h1 className="text-2xl text-center font-bold">Dashboard</h1>
       {/* <Dashboard_App /> */}
-      <ExpeimentalDashboard></ExpeimentalDashboard>
+      <Dashboard_home></Dashboard_home>
+      {/* <ExpeimentalDashboard></ExpeimentalDashboard> */}
     </div>
   );
 };

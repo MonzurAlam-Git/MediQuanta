@@ -190,7 +190,7 @@ const ExpeimentalDashboard = () => {
       </aside>
       <div className="p-4 xl:ml-80">
         <nav className="block w-full max-w-full bg-transparent text-white shadow-none rounded-xl transition-all px-0 py-1">
-          <div className="flex flex-col-reverse justify-between gap-6 md:flex-row md:items-center">
+          {/* <div className="flex flex-col-reverse justify-between gap-6 md:flex-row md:items-center">
             <div className="capitalize">
               <nav aria-label="breadcrumb" className="w-max">
                 <ol className="flex flex-wrap items-center w-full bg-opacity-60 rounded-md bg-transparent p-0 transition-all">
@@ -333,7 +333,7 @@ const ExpeimentalDashboard = () => {
                 </span>
               </button>
             </div>
-          </div>
+          </div> */}
         </nav>
         <div className="mt-12">
           <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">

@@ -28,25 +28,30 @@ const DashboardLayout = () => {
               </svg>
             </label>
           </div>
-          <div className="flex-1 px-2 mx-2">
-            <Link to="/">MediQuanta</Link>
+          <div className="flex-1 px-2 mx-2 font-bold">
+            <Link to="/">
+              <span className="bg-red-500 p-2">Medi</span> Quanta
+            </Link>
           </div>
           {/* <div className="flex-none hidden lg:block"> */}
           <div className="flex-none hidden lg:block">
-            <ul className="menu menu-horizontal">
+            <ul className="menu menu-horizontal font-bold">
               {/* Sidebar content here */}
               {/* <li>
             <a href="/dashboard/all-products">All Products</a>
           </li> */}
+              <li>
+                <a href="/dashboard">Dashboard</a>
+              </li>
+              <li>
+                <a href="/profile">Profile</a>
+              </li>
               <li>
                 <a href="/dashboard/customize-product">Customize HealthCare</a>
               </li>
 
               <li>
                 <a href="/dashboard/all-appointment">All Appointment</a>
-              </li>
-              <li>
-                <a href="/">Home</a>
               </li>
             </ul>
           </div>

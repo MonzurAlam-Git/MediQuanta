@@ -18,6 +18,8 @@ import PrivateRoute from "./PrivateRoute";
 import UpdatePassword from "../Pages/Authentication/UpdatePassword";
 import Contact from "../Components/Contact";
 
+import Dashboard_home from "../Components/Dashboard/DashboardArea/Dashboard_home";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -66,6 +68,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
+    // element: <Dashboard_App />,
     element: <DashboardLayout />,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
@@ -73,13 +76,18 @@ export const router = createBrowserRouter([
         path: "",
         element: (
           <PrivateRoute>
-            <Dashboard></Dashboard>
+            {/* <Dashboard></Dashboard> */}
+            <Dashboard_home></Dashboard_home>
           </PrivateRoute>
         ),
       },
       {
         path: "/dashboard/customize-product",
-        element: <Customize></Customize>,
+        element: (
+          <PrivateRoute>
+            <Customize></Customize>{" "}
+          </PrivateRoute>
+        ),
       },
       // {
       //   path: "/dashboard/all-products",
@@ -98,13 +106,21 @@ export const router = createBrowserRouter([
       },
       {
         path: "all-appointment/patientData/:id",
-        element: <AppointmentDetails></AppointmentDetails>,
+        element: (
+          <PrivateRoute>
+            <AppointmentDetails></AppointmentDetails>{" "}
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/patientData/${params.id}`),
       },
       {
         path: "/dashboard/all-appointment/patientData/update/:id",
-        element: <EditAppointment />,
+        element: (
+          <PrivateRoute>
+            <EditAppointment />{" "}
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/patientData/${params.id}`),
       },
