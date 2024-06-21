@@ -32,10 +32,8 @@ MediQuanta is a medical website built with the MERN stack (MongoDB, Express.js, 
 ### Backend
 
 - Express: ^4.18.1
-- Mongoose: ^6.6.5
 - Cors: ^2.8.5
 - Jsonwebtoken: ^8.5.1
-- Bcryptjs: ^2.4.3
 
 ## Instructions to Run the Project Locally
 
