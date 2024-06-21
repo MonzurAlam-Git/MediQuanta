@@ -47,3 +47,5 @@ MediQuanta is a medical website built with the MERN stack (MongoDB, Express.js, 
 ```bash
 git clone https://github.com/yourusername/MediQuanta.git
 cd MediQuanta
+npm install
+npm run dev
