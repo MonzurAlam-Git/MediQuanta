@@ -21,7 +21,7 @@ const SocialLogin = () => {
         };
 
         axios
-          .post("http://localhost:3000/users", userInfo, {
+          .post("https://mediquanta-server-1.onrender.com/users", userInfo, {
             headers: {
               authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const SocialLogin = () => {
           email: res?.user?.email,
           name: res?.user?.displayName,
         };
-        fetch(" http://localhost:3000/users", {
+        fetch(" https://mediquanta-server-1.onrender.com/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const SocialLogin = () => {
 //         name: res?.user?.displayName,
 //       };
 
-//       fetch("http://localhost:3000/users", {
+//       fetch("https://mediquanta-server-1.onrender.com/users", {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ const SocialLogin = () => {
 //           // localStorage.setItem("token", data?.token);
 //           console.log(data);
 //         });
-//       // const response = axios.post("http://localhost:3000/users", userData, {
+//       // const response = axios.post("https://mediquanta-server-1.onrender.com/users", userData, {
 //       //   headers: {
 //       //     authorization: `Bearer ${token}`,
 //       //     "Content-Type": "application/json", // Ensure content type is JSON

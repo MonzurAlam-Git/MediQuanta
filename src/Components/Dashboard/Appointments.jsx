@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const Appointments = () => {
   const [appointments, setAppointments] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/patientData")
+    fetch("https://mediquanta-server-1.onrender.com/patientData")
       .then((res) => res.json())
       .then((data) => setAppointments(data));
   }, []);

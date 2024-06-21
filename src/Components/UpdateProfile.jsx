@@ -35,7 +35,7 @@ const UpdateProfile = () => {
 
     const userData = { email, name, photoURL, number };
 
-    await fetch(`http://localhost:3000/users/${id}`, {
+    await fetch(`https://mediquanta-server-1.onrender.com/users/${id}`, {
       method: "PATCH",
       headers: {
         authorization: `Bearer ${token}`,

@@ -1,5 +1,6 @@
 import { Fade } from "react-awesome-reveal";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -15,7 +16,7 @@ const Banner = () => {
         <div className="hero-content text-center text-neutral-content flex flex-col justify-center items-center px-4 lg:px-0">
           {/* text  */}
           <div className="">
-            <h1 className="text-xl font-bold">
+            <h1 className="text-xl lg:text-4xl font-bold">
               <Fade delay={1e3} cascade damping={1e-1}>
                 Data Analytics for Patient Care
               </Fade>
@@ -32,7 +33,9 @@ const Banner = () => {
                 tailor treatments to individual needs.
               </motion.p>
             </p>
-            <button className="btn btn-accent">Get Started</button>
+            <button className="btn btn-accent">
+              <Link to={"/dashboard/customize-product"}>Get Started</Link>
+            </button>
           </div>
         </div>
       </div>

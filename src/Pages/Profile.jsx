@@ -12,7 +12,7 @@ const Profile = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${email_fetch}`)
+    fetch(`https://mediquanta-server-1.onrender.com/users/${email_fetch}`)
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, [email_fetch]);

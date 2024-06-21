@@ -21,19 +21,19 @@ import {
 
 const Dashboard_home = () => {
   const [usersNumber, setUsersNumber] = useState(0);
-  fetch("http://localhost:3000/users")
+  fetch("https://mediquanta-server-1.onrender.com/users")
     .then((res) => res.json())
     .then((data) => setUsersNumber(data.length));
 
   const [patientData, setpatientData] = useState(0);
-  fetch("http://localhost:3000/patientData")
+  fetch("https://mediquanta-server-1.onrender.com/patientData")
     .then((res) => res.json())
     .then((data) => setpatientData(data.length));
   {
     /* Services */
   }
   const [services, setservices] = useState(0);
-  fetch("http://localhost:3000/services")
+  fetch("https://mediquanta-server-1.onrender.com/services")
     .then((res) => res.json())
     .then((data) => setservices(data.length));
 

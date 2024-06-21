@@ -30,7 +30,7 @@ const Login = () => {
         };
 
         axios
-          .post("http://localhost:3000/users", userInfo, {
+          .post("https://mediquanta-server-1.onrender.com/users", userInfo, {
             headers: {
               authorization: `Bearer ${token}`,
               "Content-Type": "application/json",

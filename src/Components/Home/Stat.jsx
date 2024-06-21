@@ -5,7 +5,7 @@ const Stat = () => {
         STAT gives better Insight
       </h1>
       <div className="">
-        <div className="stats shadow flex flex-wrap">
+        <div className="stats shadow flex flex-wrap lg:grid  lg:grid-cols-3 p-5 mx-auto">
           <div className="stat">
             <div className="stat-figure text-primary">
               <svg

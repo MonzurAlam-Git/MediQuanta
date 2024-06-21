@@ -12,7 +12,7 @@ MediQuanta is a medical website built with the MERN stack (MongoDB, Express.js, 
 ## Live Links
 
 - **Frontend Deployment**: [MediQuanta Frontend](https://medi-quanta.vercel.app/)
-- **Backend Deployment**: [MediQuanta Backend](http://localhost:3000/)
+- **Backend Deployment**: [MediQuanta Backend](https://mediquanta-server-1.onrender.com/)
 
 ## Technology Stack
 
@@ -49,3 +49,4 @@ git clone https://github.com/yourusername/MediQuanta.git
 cd MediQuanta
 npm install
 npm run dev
+```

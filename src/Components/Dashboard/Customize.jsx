@@ -12,11 +12,11 @@ const Customize = () => {
   const token = localStorage.getItem("token");
   const onSubmit = async (patientData) => {
     // const response = await axios.post(
-    //   "http://localhost:3000/patientData",
+    //   "https://mediquanta-server-1.onrender.com/patientData",
     //   patientData
     // );
 
-    await fetch("http://localhost:3000/patientData", {
+    await fetch("https://mediquanta-server-1.onrender.com/patientData", {
       method: "POST",
       headers: {
         authorization: `Bearer ${token}`,

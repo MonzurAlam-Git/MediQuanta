@@ -1,9 +1,11 @@
 const Contact = () => {
   return (
     <div>
-      <h1 className="text-2xl text-center font-bold mt-5">Contact With US</h1>
-      <div className="  bg-base-200 grid justify-center">
-        <div className=" flex-col lg:flex-row-reverse">
+      <div className=" bg-base-200 grid justify-center">
+        <h1 className="text-2xl text-center font-bold m-5 opacity-60">
+          Contact With US
+        </h1>
+        <div className=" flex-col lg:flex-row-reverse mb-6 p-5">
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body">
               <div className="form-control">

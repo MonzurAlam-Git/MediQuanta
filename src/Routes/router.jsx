@@ -54,7 +54,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: (params) =>
-          fetch(`http://localhost:3000/users/${params.email_fetch}`),
+          fetch(
+            `https://mediquanta-server-1.onrender.com/users/${params.email_fetch}`
+          ),
       },
       {
         path: "/update-profile/:id",
@@ -92,7 +94,7 @@ export const router = createBrowserRouter([
       // {
       //   path: "/dashboard/all-products",
       //   element: <AllProducts></AllProducts>,
-      //   loader: () => fetch("http://localhost:3000/services"),
+      //   loader: () => fetch("https://mediquanta-server-1.onrender.com/services"),
       // },
       {
         path: "/dashboard/all-appointment",
@@ -102,7 +104,7 @@ export const router = createBrowserRouter([
             <Appointments></Appointments>
           </PrivateRoute>
         ),
-        // loader: () => fetch("http://localhost:3000/patientData"),
+        // loader: () => fetch("https://mediquanta-server-1.onrender.com/patientData"),
       },
       {
         path: "all-appointment/patientData/:id",
@@ -112,7 +114,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/patientData/${params.id}`),
+          fetch(
+            `https://mediquanta-server-1.onrender.com/patientData/${params.id}`
+          ),
       },
       {
         path: "/dashboard/all-appointment/patientData/update/:id",
@@ -122,7 +126,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/patientData/${params.id}`),
+          fetch(
+            `https://mediquanta-server-1.onrender.com/patientData/${params.id}`
+          ),
       },
     ],
   },
