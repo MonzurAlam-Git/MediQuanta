@@ -3,21 +3,21 @@ import SingleProductDashboard from "./SingleProductDashboard";
 import { useEffect, useState } from "react";
 
 const Appointments = () => {
-  const [items, setItems] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filterCriteria, setFilterCriteria] = useState({});
-
-  const filteredItems = items.filter((item) => {
-    const matchesSearch = item.name
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    const matchesFilter = filterCriteria.category
-      ? item.category === filterCriteria.category
-      : true;
-    return matchesSearch && matchesFilter;
-  });
-
   const [appointments, setAppointments] = useState([]);
+  // const [items, setItems] = useState([]);
+  // const [searchQuery, setSearchQuery] = useState("");
+  // const [filterCriteria, setFilterCriteria] = useState({});
+
+  // const filteredItems = appointments.filter((item) => {
+  //   const matchesSearch = item.name
+  //     .toLowerCase()
+  //     .includes(searchQuery.toLowerCase());
+  //   const matchesFilter = filterCriteria.name
+  //     ? item.name === filterCriteria.name
+  //     : true;
+  //   return matchesSearch && matchesFilter;
+  // });
+
   useEffect(() => {
     fetch("https://mediquanta-server-1.onrender.com/patientData")
       .then((res) => res.json())
@@ -32,7 +32,7 @@ const Appointments = () => {
 
   return (
     <div>
-      <div className="form-control">
+      {/* <div className="form-control">
         <input
           type="text"
           placeholder="Search"
@@ -53,7 +53,7 @@ const Appointments = () => {
             <li key={item.id}>{item.name}</li>
           ))}
         </ul>
-      </div>
+      </div> */}
       <div className="container flex flex-wrap mx-auto align-center justify-center">
         {appointments.map((appointment) => (
           <SingleProductDashboard
