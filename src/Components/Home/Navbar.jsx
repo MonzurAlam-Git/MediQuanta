@@ -53,9 +53,7 @@ const Navbar = () => {
                 Dashboard
               </Link>
             </li>
-            <li>
-              <Link className="font-bold">Reviews</Link>
-            </li>
+
             <li>
               <Link to={`/profile/${user?.email}`} className="font-bold">
                 Profile

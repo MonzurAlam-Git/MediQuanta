@@ -1,12 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../Components/Shared/AuthProvider";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
+  const [items, setItems] = useState([]); // Original items
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filterCriteria, setFilterCriteria] = useState({
+    /* criteria */
+  });
+
   return (
     <div className="drawer">
-      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="w-full navbar bg-base-300">
@@ -44,6 +49,9 @@ const DashboardLayout = () => {
             <a href="/dashboard/all-products">All Products</a>
           </li> */}
               <li>
+                <a href="/dashboard/all-appointment">All Appointment</a>
+              </li>
+              <li>
                 <a href="/dashboard">Dashboard</a>
               </li>
               <li>
@@ -51,10 +59,6 @@ const DashboardLayout = () => {
               </li>
               <li>
                 <a href="/dashboard/customize-product">Customize HealthCare</a>
-              </li>
-
-              <li>
-                <a href="/dashboard/all-appointment">All Appointment</a>
               </li>
             </ul>
           </div>
@@ -68,12 +72,13 @@ const DashboardLayout = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
+
         <ul className="menu p-4 w-80 min-h-full bg-base-200">
-          {/* Sidebar content here */}
           {/* Sidebar content here */}
           {/* <li>
             <a href="/dashboard/all-products">All Products</a>
           </li> */}
+
           <li>
             <a href="/dashboard/customize-product">Customize HealthCare</a>
           </li>
