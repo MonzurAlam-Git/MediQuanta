@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Notify from "../Shared/Notify";
 
-const SingleProductDashboard = ({ appointment }) => {
+const SingleProductDashboard = ({ appointment, onDelete }) => {
   const { _id, category, PatientName, age, details, image_url } = appointment;
 
   const handleDelete = async (id) => {
@@ -14,7 +14,7 @@ const SingleProductDashboard = ({ appointment }) => {
       .then((data) => {
         // <Notify text="account deletion successful" />;
         console.log(data);
-        // onDelete(_id);
+        onDelete(_id);
       });
   };
 

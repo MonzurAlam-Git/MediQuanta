@@ -4,7 +4,7 @@ import { Fade } from "react-awesome-reveal";
 
 const Services = () => {
   return (
-    <div>
+    <div className="w-screen">
       <h1 className=" mt-4 text-2xl text-center font-bold">
         <motion.h3
           initial={{ y: "100%" }}
@@ -185,9 +185,9 @@ const Services = () => {
                 <img
                   src="https://i.ibb.co/SnPVpb7/image.png"
                   alt="Black and White Bicolor Cat"
-                  width={500}
+                  width={412}
                   height={500}
-                  className="w-full h-full object-cover"
+                  className=" h-full object-cover"
                 />
               </motion.div>
             </div>

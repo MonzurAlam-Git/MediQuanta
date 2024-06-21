@@ -1,11 +1,11 @@
 const Stat = () => {
   return (
     <div>
-      <h1 className="text-4xl text-center font-bold mb-5">
+      <h1 className="text-3xl lg:text-4xl text-center font-bold m-5">
         STAT gives better Insight
       </h1>
-      <div className="grid justify-center">
-        <div className="stats shadow">
+      <div className="">
+        <div className="stats shadow flex flex-wrap">
           <div className="stat">
             <div className="stat-figure text-primary">
               <svg

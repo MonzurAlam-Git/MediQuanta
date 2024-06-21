@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 const EditAppointment = () => {
   const data = useLoaderData();
   console.log(data._id);
-
+  const token = localStorage.getItem("token");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -27,6 +27,7 @@ const EditAppointment = () => {
     await fetch(`http://localhost:3000/patientData/${data._id}`, {
       method: "PATCH",
       headers: {
+        authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(patientData),

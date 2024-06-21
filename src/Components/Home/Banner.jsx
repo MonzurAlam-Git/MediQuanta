@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className="">
       <div
-        className="hero lg:max-w-full lg:min-h-screen bg-cover bg-center"
+        className="hero max-w-[412] lg:w-screen lg:min-h-screen bg-cover bg-center"
         style={{
           backgroundImage:
             "url(https://i.ibb.co/2S9VPtY/national-cancer-institute-Bx-Xg-TQEw1-M4-unsplash.jpg)",

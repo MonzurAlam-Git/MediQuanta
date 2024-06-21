@@ -9,7 +9,7 @@ const Customize = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const token = localStorage.getItem("token");
   const onSubmit = async (patientData) => {
     // const response = await axios.post(
     //   "http://localhost:3000/patientData",
@@ -19,6 +19,7 @@ const Customize = () => {
     await fetch("http://localhost:3000/patientData", {
       method: "POST",
       headers: {
+        authorization: `Bearer ${token}`,
         "Content-type": "application/json",
       },
       body: JSON.stringify(patientData),

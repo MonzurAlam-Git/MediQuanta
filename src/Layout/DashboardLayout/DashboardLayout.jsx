@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../../Components/Shared/AuthProvider";
 
 const DashboardLayout = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -44,7 +47,7 @@ const DashboardLayout = () => {
                 <a href="/dashboard">Dashboard</a>
               </li>
               <li>
-                <a href="/profile">Profile</a>
+                <a href={`/profile/${user?.email}`}>Profile</a>
               </li>
               <li>
                 <a href="/dashboard/customize-product">Customize HealthCare</a>

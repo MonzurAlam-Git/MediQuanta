@@ -10,12 +10,19 @@ const Appointments = () => {
       .then((data) => setAppointments(data));
   }, []);
 
+  const handleDeleteappointment = (id) => {
+    setAppointments(
+      appointments.filter((appointment) => appointment._id !== id)
+    );
+  };
+
   return (
-    <div className="container flex mx-auto align-center justify-center">
+    <div className="container flex flex-wrap mx-auto align-center justify-center">
       {appointments.map((appointment) => (
         <SingleProductDashboard
           key={appointment._id}
           appointment={appointment}
+          onDelete={handleDeleteappointment}
         ></SingleProductDashboard>
       ))}
     </div>

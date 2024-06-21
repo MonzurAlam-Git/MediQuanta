@@ -60,7 +60,7 @@ const Reviews = () => {
       <h1 className="text-3xl text-center font-bold m-10">
         Listen From Our Customers
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-1  mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 justify-items-center gap-1  mx-auto">
         {customer_reviews.map((review) => (
           <Review key={review.id} review={review}></Review>
         ))}

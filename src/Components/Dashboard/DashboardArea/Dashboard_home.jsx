@@ -93,7 +93,7 @@ const Dashboard_home = () => {
           <h1>{usersNumber}</h1>
         </div>
       </div>
-      <h1 className="text-2xl text-center font-bold text-emerald-500 bg-gray-700 container mx-auto p-2 m-5">
+      <h1 className="text-2xl text-center font-bold text-emerald-500 bg-gray-700 container mx-auto p-2 m-5 rounded-xl">
         Compare With Others
       </h1>
       <div className="charts">

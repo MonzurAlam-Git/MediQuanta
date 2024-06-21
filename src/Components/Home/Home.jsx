@@ -12,7 +12,7 @@ const Home = () => {
   console.log("user", user);
 
   return (
-    <div className="">
+    <div className="max-w-[412]">
       {/* Banner */}
       <Banner></Banner>
       {/* Services  */}
