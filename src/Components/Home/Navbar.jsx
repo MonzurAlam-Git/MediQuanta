@@ -1,12 +1,13 @@
-import { IoMdLogOut } from "react-icons/io";
-import { Link, Navigate } from "react-router-dom";
-import { auth, user } from "../../../firebase.config";
-import { signOut } from "firebase/auth";
 import { useContext } from "react";
+import { Link, Navigate } from "react-router-dom";
+import Moon from "../../assets/moon.svg";
+import Sun from "../../assets/sun.svg";
+import { ThemeContext } from "../../Context";
 import { AuthContext } from "../Shared/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const { darkMode, setDarkMode } = useContext(ThemeContext);
 
   const handleLogOut = async () => {
     await logOut();
@@ -14,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100">
+    <div className={`navbar ${darkMode ? "dark" : ""}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -106,6 +107,14 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end grid-flow-col gap-2">
+        <a
+          onClick={() => setDarkMode((darkMode) => !darkMode)}
+          className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block"
+          href="#"
+        >
+          <img src={darkMode ? Sun : Moon} width="44" height="44" alt="" />
+        </a>
+
         {user ? (
           <button onClick={handleLogOut} className="btn btn-outline btn-error">
             Log Out

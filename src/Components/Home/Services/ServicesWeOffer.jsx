@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import SingleService from "./SingleService";
-import { motion } from "framer-motion";
 
 const ServicesWeOffer = () => {
   const [services, setServices] = useState([]);
@@ -11,7 +11,7 @@ const ServicesWeOffer = () => {
       .then((data) => setServices(data));
   }, []);
   return (
-    <div className="bg-blue-900 p-10">
+    <div className="p-10">
       <h1 className=" mt-4 text-2xl text-center font-bold">
         <motion.h3
           initial={{ y: "100%" }}
@@ -26,7 +26,7 @@ const ServicesWeOffer = () => {
           Offers
         </motion.h3>
       </h1>
-      <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-2 justify-items-center ">
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-4 justify-items-center ">
         {services.map((service) => (
           <SingleService key={service._id} service={service}></SingleService>
         ))}
